@@ -60,6 +60,8 @@ for train, test in kf:
 
 r2average = sum(r2) / float(len(r2))
 print ("The average R2 is "+ str(r2average) + ".")
+print ("The average R2 is fairly high around 65%. This means we can explain 65% of the variation in the model.")
+
 
 #Calculate MSE
 y_hat = f.predict(X_test) # predict y based on testing data
@@ -71,6 +73,8 @@ for prediction, actual in zip(y_hat, y_test): #wth is zip?
 
 mse = total_square_error / len(y_hat)
 print ("The average MSE is "+ str(mse) + ".")
+print ("The average MSE is around .0005. This is each observation's deviation from the predicted value, squared. MSE tends to heavily weight statistical outliers, so a smaller MSE is good to see.")
+
 
 #Calculate MAE
 total_absolute_error = 0
@@ -80,5 +84,6 @@ for prediction, actual in zip(y_hat, y_test):
      total_absolute_error += abs(prediction-actual)
 
 mae = total_absolute_error / len(y_hat)
-print ("The average MAE is "+ str(maef) + ".")
+print ("The average MAE is "+ str(mae) + ".")
+print ("The average MAE is around .019. This is the absolute values in each observation's deviation from the predicted value. It averages magnitude of the errors in a set of forecasts, without considering their direction. It measures accuracy for continuous variables.")
 
